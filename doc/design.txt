@@ -1,0 +1,164 @@
+Setting:
+  - Partially terraformed world, a-la Mines of Titan, caves, monsters, etc.
+  - Goal: figure out later.
+  - Real-time turn based. Each server has an "Turns per Second"
+    setting, which is how often turns are taken. If no action from the
+    client, assume a "pass" action.
+  - Auto-attack everything is retarded. Require target to attack, then
+    auto-attack. Ranged attacks still require manual work.
+  - Auto-retaliate mode. Toggleable by the client.
+  - Floors in the mine are only generated if someone has /not/ been to
+    it yet. Otherwise all players see the same level, regardless of
+    when they entered. Monsters respawn randomly on the levels to keep
+    it interesting.
+#   - Multiple mines out in the wilderness
+#   - Party system
+#     - Party members can see all player's revealed parts of the map
+#     - Quick "radar" at the edges of the map to show where the other
+#       players are in the party.
+  - Respawn "units"
+    - When a player dies, must respawn at the registered unit.
+#     - When the player dies with a deck implanted, corpse turns into a
+#       zombie, player respawns at a previously registerd unit. Zombie
+#       keeps equipment -- must kill zombie to get it back! Exception is
+#       the deck and chips -- those are considered sugically a part of
+#       the wearer and are kept after respawn. Cannot be recovered from
+#       the zombie. Zombies only happen to people with decks.
+
+  - Small colony
+    - Shops
+      - Weapons shop
+      - Armor shop
+      - Chips shop
+      - Respawn units
+#       - Bounty office
+#       - Surgical Alteration Shops (alt shops. mods. maybe -- work out this later)
+
+Player:
+  - Optional Deck -- gives the player the ability to equip chips and
+    code fragments.
+    - Decks are purchasable -- each has a limit of how many chips
+      you can have equipped at one time. Must have a deck to run code
+      fragments.
+    - Chips can only be equipped at chip shops.
+    - Code fragments can be equipped at any time by the user.
+    - Downsides: the more use of active chips, the closer the user gets
+      to having hallucinations -- rooms filled with monsters that
+      nearly kill the user (for real) and then disappear, or rooms
+      filled with... only the player! Increases the chance of epic
+      failure of electronic items and weapons.
+
+  - No Classes
+
+  - Attributes:
+    - Strength     -- how much you can carry
+    - Endurance    -- your HP
+    - Intelligence -- ability to use chips and code fragments
+    - Charisma     -- how much everyone likes you, and how afraid
+                      enemies are of you
+    - Dexterity    -- ability with projectile weapons
+
+  - All attributes modifiable at level up.
+
+  - Luck:
+    - Luck changes only based upon the consistent use of an item. The
+      more you use it, the better the luck count on the item. Luck is
+      factored into every dice roll.
+    - Luck is like an Armor Class -- the more items you have that are
+      "lucky" the higher your LC count.
+
+  - Armor Class:
+    - Typical armor thingamajig.
+
+Monsters:
+#   - Monsters have inventory, just like the player.
+  - Attributes spawned with a range of values based upon the
+    class. (fixed for now)
+#   - Monsters can pick up items. Each item has a drop percentage -- not
+#     guaranteed to get certain items back!
+
+Armor:
+  - Body
+    - Ninja Turtle Haloween Costume (+10 luck for dumb luck)
+    - Ceramic Power Armor
+
+Weapons:
+  - Melee
+    - Nerf bat
+    - Lead pipe
+    - Laser-edged sword
+  - Energy
+    - Laser pointer
+    - Stun-gun
+    - Sparq
+  - Projectile
+    - Super soaker
+    - Dart gun
+    - Rail gun
+  - Thrown
+    - Dress Shoe
+    - Grenades
+    - Large rock
+
+Chips:
+  - Decks are attached to the head. Chips are physically inserted
+    into the deck and modify the body in some way. Can only be
+    changed at chips shops.
+  - Passive enhancements:
+    - Inherent weapons that characters respawn with
+    - Shields
+    - Lights
+    - X-ray vision (see monsters through walls)
+  - Active enhancements:
+    - Short bursts of attribute increases
+
+Code Fragments:
+  - Each code fragment increases the "load" on the deck. With each
+    use the load increases, until the deck is fully loaded, at which
+    point the player cannot use any further code fragments. DoTs are
+    constant use of the load until the monster targetted is dead or
+    the DoT is broken. Instants take effect for one turn and increase
+    the load for one turn only.
+  - Broadcasting range. Depending on the deck.
+  - Affect electronic monsters and organic monsters with decks. Plain
+    organics are not affected. Conversely, the aforementioned monsters
+    can also affect players with decks.
+  - Cracking code:
+    - Damage over Time
+    - Instant damage
+    - Attribute degradation
+    - Speed adjustment (faster, slower, pause)
+    - Increase metabolism speed (healing, but poisons run faster)
+
+Deck attributes:
+  - Max load
+  - Max num of chips
+
+Items:
+  - Credits
+    - Achieved via killing monsters (bounties).
+      - With a deck, auto-get the credits upon kill.
+      - Without deck, you have to pick up a token of the kill that the
+        monster drops and return it to the bounty office.
+  - Tapes
+    - Contain unidentified code
+    - Identify code at shops, or load and run it unidentified. MIGHT
+      BE DAMAGING! Might be a "virus" which sticks around until you
+      return to the colony (debuff, maybe poison-like DoT). Cannot
+      load and "store" the code for later use.
+  - Weapons
+  - Armor
+  - Chips
+  - Flashlights (not always needed on shallow levels)
+
+Grid types:
+    Type               Passable    Representation
+  - Empty space        y           .
+  - Wall               -           #
+  - Perma Wall         -           #
+  - Door               -           +
+  - Open Door          y           '
+  - Up elevator        y           >
+  - Down elevator      y           <
+  - Water              y           ~
+  - Player             -           @
